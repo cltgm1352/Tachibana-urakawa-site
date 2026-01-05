@@ -36,7 +36,6 @@
       display: none;
     }
 
-    /* ヘッダー */
     header {
       position: fixed;
       top: 0;
@@ -67,7 +66,6 @@
       transform: scale(1.1);
     }
 
-    /* TACHIBANA（左上） */
     .site-title {
       position: fixed;
       top: 90px;
@@ -82,11 +80,10 @@
       text-transform: uppercase;
     }
 
-    /* A Stay That Gives Back. を左下に移動 */
     .tagline {
       position: fixed;
-      bottom: 60px;                    /* 下から少し隙間 */
-      left: 40px;                      /* 左端から隙間（TACHIBANAと同じ位置） */
+      bottom: 60px;
+      left: 40px;
       z-index: 5;
       font-family: 'Segoe UI', system-ui, sans-serif;
       font-size: 2.8rem;
@@ -97,7 +94,6 @@
       text-transform: uppercase;
     }
 
-    /* 動画 */
     .video-bg {
       position: fixed;
       inset: 0;
@@ -112,7 +108,6 @@
       object-position: center;
     }
 
-    /* コンテンツ */
     .content {
       position: relative;
       z-index: 10;
@@ -123,20 +118,20 @@
 
     .introduction {
       background: #262626;
-      padding: 120px 5% 140px;
+      padding: 120px 5% 140px;          /* 元に戻す */
       text-align: center;
-      line-height: 1.85;
-      font-size: 1.25rem;
+      line-height: 1.85;                /* 元に戻す */
+      font-size: 1.25rem;               /* 元に戻す */
       font-weight: 900;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     .introduction p {
-      max-width: 860px;
+      max-width: 860px;                 /* 元に戻す */
       margin: 0 auto 2.5em;
     }
 
-    /* スマホ対応（文字サイズ縮小） */
+    /* スマホ対応 */
     @media (max-width: 768px) {
       header { height: 60px; }
       .logo-center { max-height: 36px; }
@@ -152,13 +147,17 @@
       }
       .introduction {
         padding: 80px 8% 100px;
-        font-size: 1rem;
+        font-size: 1.1rem;
+      }
+      .introduction p {
+        max-width: 90%;
       }
     }
 
     @media (max-width: 480px) {
       .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
+      .introduction { padding: 60px 6% 80px; font-size: 1rem; }
     }
   </style>
 </head>
