@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TachibanaOfficialWebsite</title>
   
+  <!-- ファビコン -->
   <link rel="icon" type="image/png" href="img/site_logo.png">
 
   <style>
@@ -19,13 +20,15 @@
       padding: 0;
       height: 100%;
       min-height: 100vh;
-      overflow-y: auto !important;      /* 強制的に縦スクロール有効 */
+      overflow-y: auto !important;
       overflow-x: hidden;
       background: #262626;
       color: #ffffff;
       -webkit-user-select: none;
       user-select: none;
-      -webkit-overflow-scrolling: touch; /* iOSスムーズスクロール */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
     }
 
     html::-webkit-scrollbar,
@@ -33,14 +36,16 @@
       display: none;
     }
 
+    /* ヘッダー */
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 70px;
+      height: 80px;
       background: transparent;
       z-index: 100;
+      pointer-events: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,7 +58,7 @@
     }
 
     .logo-center {
-      max-height: 36px;
+      max-height: 48px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -62,34 +67,37 @@
       transform: scale(1.1);
     }
 
+    /* TACHIBANA（左上） */
     .site-title {
       position: fixed;
-      top: 70px;
-      left: 20px;
+      top: 90px;
+      left: 40px;
       z-index: 5;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      font-size: 3.2rem;
+      font-size: 6rem;
       font-weight: 900;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       color: #ffffff;
       pointer-events: none;
       text-transform: uppercase;
     }
 
+    /* A Stay That Gives Back. を左下に移動 */
     .tagline {
       position: fixed;
-      bottom: 40px;
-      left: 20px;
+      bottom: 60px;                    /* 下から少し隙間 */
+      left: 40px;                      /* 左端から隙間（TACHIBANAと同じ位置） */
       z-index: 5;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      font-size: 1.6rem;
+      font-size: 2.8rem;
       font-weight: 900;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       color: #ffffff;
       pointer-events: none;
       text-transform: uppercase;
     }
 
+    /* 動画 */
     .video-bg {
       position: fixed;
       inset: 0;
@@ -104,30 +112,50 @@
       object-position: center;
     }
 
+    /* コンテンツ */
     .content {
       position: relative;
       z-index: 10;
-      padding-top: 100vh;               /* ヘッダー＋動画分の高さを確保 */
+      padding-top: 100vh;
       background: transparent;
       min-height: 100vh;
     }
 
     .introduction {
       background: #262626;
-      padding: 80px 8% 100px;
+      padding: 120px 5% 140px;
       text-align: center;
-      line-height: 1.8;
-      font-size: 1rem;
+      line-height: 1.85;
+      font-size: 1.25rem;
       font-weight: 900;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     .introduction p {
       max-width: 860px;
-      margin: 0 auto 2.2em;
+      margin: 0 auto 2.5em;
     }
 
-    /* 超小さい画面用 */
+    /* スマホ対応（文字サイズ縮小） */
+    @media (max-width: 768px) {
+      header { height: 60px; }
+      .logo-center { max-height: 36px; }
+      .site-title {
+        font-size: 3.2rem;
+        top: 70px;
+        left: 20px;
+      }
+      .tagline {
+        font-size: 1.6rem;
+        bottom: 40px;
+        left: 20px;
+      }
+      .introduction {
+        padding: 80px 8% 100px;
+        font-size: 1rem;
+      }
+    }
+
     @media (max-width: 480px) {
       .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
