@@ -2,10 +2,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- 重要：スマホでのズームを完全に防止 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>TachibanaOfficialWebsite</title>
-  
-  <!-- ファビコン -->
   <link rel="icon" type="image/png" href="img/site_logo.png">
 
   <style>
@@ -29,6 +28,7 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
 
     html::-webkit-scrollbar,
@@ -36,6 +36,7 @@
       display: none;
     }
 
+    /* ヘッダー */
     header {
       position: fixed;
       top: 0;
@@ -60,12 +61,14 @@
       max-height: 48px;
       cursor: pointer;
       transition: transform 0.3s ease;
+      touch-action: manipulation; /* スマホでダブルタップズーム防止 */
     }
 
     .logo-center:hover {
       transform: scale(1.1);
     }
 
+    /* TACHIBANA（左上・背面） */
     .site-title {
       position: fixed;
       top: 90px;
@@ -80,6 +83,7 @@
       text-transform: uppercase;
     }
 
+    /* A Stay That Gives Back.（左下・背面） */
     .tagline {
       position: fixed;
       bottom: 60px;
@@ -94,6 +98,7 @@
       text-transform: uppercase;
     }
 
+    /* 動画背景 */
     .video-bg {
       position: fixed;
       inset: 0;
@@ -108,48 +113,52 @@
       object-position: center;
     }
 
+    /* コンテンツ */
     .content {
       position: relative;
       z-index: 10;
       padding-top: 100vh;
-      background: transparent;
       min-height: 100vh;
     }
 
     .introduction {
       background: #262626;
-      padding: 140px 6% 160px;          /* 少しだけ上下余白を増やして大きく感じる */
+      padding: 140px 6% 160px;
       text-align: center;
-      line-height: 1.9;                 /* 行間を少し広げてゆったり */
-      font-size: 1.4rem;                /* 元の1.25remより少し大きく（1.4rem） */
+      line-height: 1.9;
+      font-size: 1.4rem;              /* ちょうどいい大きさ */
       font-weight: 900;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     .introduction p {
-      max-width: 920px;                 /* 少しだけ横幅を広げて文字が大きく見える */
-      margin: 0 auto 3em;               /* 段落間隔を少し広げる */
+      max-width: 920px;
+      margin: 0 auto 3em;
     }
 
-    /* スマホ対応（小さめに） */
+    /* スマホ対応 */
     @media (max-width: 768px) {
       header { height: 60px; }
       .logo-center { max-height: 36px; }
+
       .site-title {
         font-size: 3.2rem;
         top: 70px;
         left: 20px;
       }
+
       .tagline {
         font-size: 1.6rem;
         bottom: 40px;
         left: 20px;
       }
+
       .introduction {
         padding: 80px 8% 100px;
         font-size: 1.15rem;
         line-height: 1.8;
       }
+
       .introduction p {
         max-width: 90%;
       }
@@ -164,6 +173,7 @@
 </head>
 <body>
 
+  <!-- ヘッダー（ロゴクリックでトップへ） -->
   <header>
     <img 
       src="img/Logo_Site.png" 
@@ -173,9 +183,11 @@
     >
   </header>
 
+  <!-- 文字オーバーレイ -->
   <div class="site-title">TACHIBANA</div>
   <div class="tagline">A Stay That Gives Back.</div>
 
+  <!-- 動画背景 -->
   <div class="video-bg">
     <video autoplay muted loop playsinline preload="auto">
       <source src="video/video_home.mp4" type="video/mp4">
@@ -183,6 +195,7 @@
     </video>
   </div>
 
+  <!-- Introductionセクション -->
   <div class="content">
     <section class="introduction">
       <p>Nestled in a quiet mountain village, TACHIBANA is a lovingly restored traditional house.</p>
@@ -193,6 +206,7 @@
     </section>
   </div>
 
+  <!-- 保護スクリプト -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => e.preventDefault());
@@ -200,6 +214,7 @@
       if (e.ctrlKey && ['s','S','u','U'].includes(e.key)) e.preventDefault();
     });
 
+    // スクロールでヘッダーに背景
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       if (window.scrollY > 50) {
