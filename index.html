@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TachibanaOfficialWebsite</title>
   
-  <!-- ファビコン -->
   <link rel="icon" type="image/png" href="img/site_logo.png">
 
   <style>
@@ -16,15 +15,17 @@
     }
 
     html, body {
+      margin: 0;
+      padding: 0;
       height: 100%;
-      min-height: 200vh;
+      min-height: 100vh;
+      overflow-y: auto !important;      /* 強制的に縦スクロール有効 */
       overflow-x: hidden;
       background: #262626;
       color: #ffffff;
       -webkit-user-select: none;
       user-select: none;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch; /* iOSスムーズスクロール */
     }
 
     html::-webkit-scrollbar,
@@ -37,10 +38,9 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 70px; /* スマホ用に少し小さめ */
+      height: 70px;
       background: transparent;
       z-index: 100;
-      pointer-events: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,9 +53,7 @@
     }
 
     .logo-center {
-      max-height: 40px;
-      width: auto;
-      object-fit: contain;
+      max-height: 36px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -64,37 +62,34 @@
       transform: scale(1.1);
     }
 
-    /* TACHIBANA（左上） */
     .site-title {
       position: fixed;
-      top: 80px;
-      left: 25px;
+      top: 70px;
+      left: 20px;
       z-index: 5;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      font-size: 6rem;
+      font-size: 3.2rem;
       font-weight: 900;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.1em;
       color: #ffffff;
       pointer-events: none;
       text-transform: uppercase;
     }
 
-    /* タグライン（左下） */
     .tagline {
       position: fixed;
-      bottom: 60px;
-      left: 25px;
+      bottom: 40px;
+      left: 20px;
       z-index: 5;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      font-size: 2.8rem;
+      font-size: 1.6rem;
       font-weight: 900;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.08em;
       color: #ffffff;
       pointer-events: none;
       text-transform: uppercase;
     }
 
-    /* 動画：スマホで端が切れても大きく表示 */
     .video-bg {
       position: fixed;
       inset: 0;
@@ -105,88 +100,42 @@
     .video-bg video {
       width: 100vw;
       height: 100vh;
-      object-fit: cover; /* 端が切れても全体をカバー */
+      object-fit: cover;
       object-position: center;
     }
 
-    /* コンテンツ */
     .content {
       position: relative;
       z-index: 10;
-      padding-top: 100vh;
+      padding-top: 100vh;               /* ヘッダー＋動画分の高さを確保 */
+      background: transparent;
+      min-height: 100vh;
     }
 
     .introduction {
       background: #262626;
-      padding: 100px 6% 120px;
-      min-height: 100vh;
+      padding: 80px 8% 100px;
       text-align: center;
-      line-height: 1.85;
-      font-size: 1.1rem;
+      line-height: 1.8;
+      font-size: 1rem;
       font-weight: 900;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     .introduction p {
       max-width: 860px;
-      margin: 0 auto 2.5em;
+      margin: 0 auto 2.2em;
     }
 
-    /* スマホ専用調整 */
-    @media (max-width: 768px) {
-      header {
-        height: 60px;
-      }
-
-      .logo-center {
-        max-height: 36px;
-      }
-
-      /* スマホでは文字サイズを大幅に縮小し、画面全体に収まるように */
-      .site-title {
-        font-size: 3.2rem;         /* かなり小さく */
-        top: 70px;
-        left: 20px;
-        letter-spacing: 0.1em;
-      }
-
-      .tagline {
-        font-size: 1.6rem;         /* さらに小さく */
-        bottom: 40px;
-        left: 20px;
-        letter-spacing: 0.08em;
-      }
-
-      .video-bg video {
-        width: 100vw;
-        height: 100vh;
-      }
-
-      .introduction {
-        padding: 80px 8% 100px;
-        font-size: 1rem;
-      }
-    }
-
-    /* 超小さいスマホ（例: iPhone SEなど） */
+    /* 超小さい画面用 */
     @media (max-width: 480px) {
-      .site-title {
-        font-size: 2.6rem;
-        top: 60px;
-        left: 15px;
-      }
-
-      .tagline {
-        font-size: 1.3rem;
-        bottom: 35px;
-        left: 15px;
-      }
+      .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
+      .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ヘッダー -->
   <header>
     <img 
       src="img/Logo_Site.png" 
@@ -196,13 +145,9 @@
     >
   </header>
 
-  <!-- TACHIBANA 文字（左上） -->
   <div class="site-title">TACHIBANA</div>
-
-  <!-- タグライン（左下） -->
   <div class="tagline">A Stay That Gives Back.</div>
 
-  <!-- 動画 -->
   <div class="video-bg">
     <video autoplay muted loop playsinline preload="auto">
       <source src="video/video_home.mp4" type="video/mp4">
@@ -210,7 +155,6 @@
     </video>
   </div>
 
-  <!-- コンテンツ -->
   <div class="content">
     <section class="introduction">
       <p>Nestled in a quiet mountain village, TACHIBANA is a lovingly restored traditional house.</p>
@@ -221,7 +165,6 @@
     </section>
   </div>
 
-  <!-- 操作防止スクリプト -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => e.preventDefault());
