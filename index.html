@@ -119,7 +119,8 @@
       min-height: 100vh;
     }
 
-    .introduction {
+    .introduction,
+    .experiences {
       background: #262626;
       padding: 100px 6% 120px;
       text-align: center;
@@ -129,7 +130,8 @@
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
-    .introduction p {
+    .introduction p,
+    .experiences p {
       max-width: 1000px;
       margin: 0 auto 1.5em;
     }
@@ -143,10 +145,10 @@
 
     .portfolio img {
       width: 100%;
-      max-width: 1280px;          /* YouTubeサムネイル横幅 */
+      max-width: 1280px;
       height: auto;
-      aspect-ratio: 16 / 9;       /* YouTubeサムネイル縦横比 */
-      object-fit: contain;        /* スマホで左右切れ防止 */
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
       display: block;
       margin: 0 auto;
     }
@@ -157,23 +159,21 @@
       .logo-center { max-height: 36px; }
       .site-title { font-size: 3.2rem; top: 70px; left: 20px; }
       .tagline { font-size: 1.6rem; bottom: 40px; left: 20px; }
-      .introduction {
+      .introduction,
+      .experiences {
         padding: 70px 6% 90px;
         font-size: 1.8rem;
         line-height: 1.45;
       }
-      .portfolio {
-        padding: 60px 4%;
-      }
-      .portfolio img {
-        max-width: 100%;
-      }
+      .portfolio { padding: 60px 4%; }
+      .portfolio img { max-width: 100%; }
     }
 
     @media (max-width: 480px) {
       .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
-      .introduction { padding: 60px 5% 80px; font-size: 1.6rem; }
+      .introduction,
+      .experiences { padding: 60px 5% 80px; font-size: 1.6rem; }
       .portfolio { padding: 50px 3%; }
     }
   </style>
@@ -211,6 +211,17 @@
     <!-- Portfolioセクション（YouTubeサムネサイズ） -->
     <section class="portfolio">
       <img src="img/portfolio/img_1.png" alt="Portfolio Image 1">
+    </section>
+
+    <!-- 新しいExperiencesセクション（Introductionと同じスタイル・フォント・大きさ） -->
+    <section class="experiences">
+      <p>Surrounded by mountains, forests, and clear rivers,</p>
+      <p>TACHIBANA rests in a place where nature still sets the rhythm of life.</p>
+      <p>Here, mornings begin with birdsong,</p>
+      <p>afternoons pass in quiet light,</p>
+      <p>and nights are wrapped in deep, gentle silence.</p>
+      <p>Each season brings its own colors, scents, and memories—</p>
+      <p>inviting you to slow down and simply be.</p>
     </section>
   </div>
 
