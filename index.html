@@ -119,8 +119,7 @@
       min-height: 100vh;
     }
 
-    .introduction,
-    .experiences {
+    .section-common {
       background: #262626;
       padding: 100px 6% 120px;
       text-align: center;
@@ -130,26 +129,26 @@
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
-    .introduction p,
-    .experiences p {
+    .section-common p {
       max-width: 1000px;
       margin: 0 auto 1.5em;
     }
 
-    /* Experiencesセクションのタイトル（小さく中央揃え） */
-    .experiences h2 {
-      font-size: 1.8rem;              /* 本文より小さく */
+    /* セクションタイトルを小さく調整 */
+    .section-title {
+      font-size: 1.4rem;              /* 以前より小さく（1.8rem → 1.4rem） */
       font-weight: 900;
       margin-bottom: 2rem;
       letter-spacing: 0.2em;
-      opacity: 0.8;                   /* 少し薄くして本文を目立たせる */
+      opacity: 0.8;
     }
 
-    /* Portfolioセクション（YouTubeサムネサイズ） */
+    /* Portfolioセクション（YouTubeサムネサイズ + 左からスライド） */
     .portfolio {
       background: #262626;
       padding: 80px 5%;
       text-align: center;
+      overflow: hidden;
     }
 
     .portfolio img {
@@ -160,6 +159,14 @@
       object-fit: contain;
       display: block;
       margin: 0 auto;
+      transform: translateX(-100%);
+      opacity: 0;
+      transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+    }
+
+    .portfolio img.visible {
+      transform: translateX(0);
+      opacity: 1;
     }
 
     /* スマホ対応 */
@@ -168,15 +175,12 @@
       .logo-center { max-height: 36px; }
       .site-title { font-size: 3.2rem; top: 70px; left: 20px; }
       .tagline { font-size: 1.6rem; bottom: 40px; left: 20px; }
-      .introduction,
-      .experiences {
+      .section-common {
         padding: 70px 6% 90px;
         font-size: 1.8rem;
         line-height: 1.45;
       }
-      .experiences h2 {
-        font-size: 1.5rem;
-      }
+      .section-title { font-size: 1.2rem; } /* スマホでも小さめ */
       .portfolio { padding: 60px 4%; }
       .portfolio img { max-width: 100%; }
     }
@@ -184,9 +188,8 @@
     @media (max-width: 480px) {
       .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
-      .introduction,
-      .experiences { padding: 60px 5% 80px; font-size: 1.6rem; }
-      .experiences h2 { font-size: 1.4rem; }
+      .section-common { padding: 60px 5% 80px; font-size: 1.6rem; }
+      .section-title { font-size: 1.1rem; }
       .portfolio { padding: 50px 3%; }
     }
   </style>
@@ -213,7 +216,7 @@
   </div>
 
   <div class="content">
-    <section class="introduction">
+    <section class="introduction section-common">
       <p>Nestled in a quiet mountain village, TACHIBANA is a lovingly restored traditional house.</p>
       <p>We welcome only one group per day, offering a private retreat where you can truly rest your heart.</p>
       <p>Surrounded by the changing seasons, warmed by the hearth, and nourished by local seasonal delicacies,</p>
@@ -221,14 +224,14 @@
       <p>With your family or someone special, please enjoy a unique stay found nowhere else.</p>
     </section>
 
-    <!-- Portfolioセクション（YouTubeサムネサイズ） -->
+    <!-- Portfolioセクション（YouTubeサムネサイズ + 左からスライド） -->
     <section class="portfolio">
-      <img src="img/portfolio/img_1.png" alt="Portfolio Image 1">
+      <img src="img/portfolio/img_1.png" alt="Portfolio Image 1" id="portfolio-img">
     </section>
 
-    <!-- Experiencesセクション（Introductionと同じスタイル） -->
-    <section class="experiences">
-      <h2>Experiences</h2>
+    <!-- Experiencesセクション -->
+    <section class="experiences section-common">
+      <h2 class="section-title">Experiences</h2>
       <p>Surrounded by mountains, forests, and clear rivers,</p>
       <p>TACHIBANA rests in a place where nature still sets the rhythm of life.</p>
       <p>Here, mornings begin with birdsong,</p>
@@ -236,6 +239,13 @@
       <p>and nights are wrapped in deep, gentle silence.</p>
       <p>Each season brings its own colors, scents, and memories—</p>
       <p>inviting you to slow down and simply be.</p>
+    </section>
+
+    <!-- Sustainabilityセクション -->
+    <section class="sustainability section-common">
+      <h2 class="section-title">Sustainability</h2>
+      <p>In Japan, single-parent families face significantly greater economic and emotional challenges than the national average. Public data shows that nearly half of children in single-parent households live in relative poverty,</p>
+      <p>and moments of rest or time away are often out of reach.</p>
     </section>
   </div>
 
@@ -254,6 +264,15 @@
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
+      }
+
+      // Portfolio画像が画面に入ったら左からスライドイン
+      const portfolioImg = document.getElementById('portfolio-img');
+      if (portfolioImg) {
+        const rect = portfolioImg.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+          portfolioImg.classList.add('visible');
+        }
       }
     });
 
