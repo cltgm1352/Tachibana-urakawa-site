@@ -121,37 +121,37 @@
 
     .introduction {
       background: #262626;
-      padding: 100px 6% 120px;          /* 余白を少し残しつつ調整 */
+      padding: 60px 5% 80px;            /* 余白をさらに削減 */
       text-align: center;
-      line-height: 1.5;                 /* 行間を詰めて読みやすく */
-      font-size: 2.2rem;                /* 文字サイズを大幅アップ（PC基準） */
+      line-height: 1.45;                /* 行間を極限まで詰めて */
+      font-size: 3.2rem;                /* 文字サイズを激増！（PC基準） */
       font-weight: 900;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     .introduction p {
       max-width: 1000px;
-      margin: 0 auto 1.5em;             /* 段落間隔も詰める */
+      margin: 0 auto 0.8em;             /* 段落間隔も極小 */
     }
 
-    /* スマホ対応（文字を大きく保ちつつ詰める） */
+    /* スマホ対応（文字をさらに大きく・詰めて） */
     @media (max-width: 768px) {
       header { height: 60px; }
       .logo-center { max-height: 36px; }
       .site-title { font-size: 3.2rem; top: 70px; left: 20px; }
       .tagline { font-size: 1.6rem; bottom: 40px; left: 20px; }
       .introduction {
-        padding: 70px 6% 90px;
-        font-size: 1.8rem;            /* スマホでもかなり大きく */
-        line-height: 1.45;
+        padding: 50px 5% 70px;
+        font-size: 2.4rem;            /* スマホでも超大きく */
+        line-height: 1.4;
       }
-      .introduction p { max-width: 90%; margin: 0 auto 1em; }
+      .introduction p { max-width: 90%; margin: 0 auto 0.7em; }
     }
 
     @media (max-width: 480px) {
       .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
-      .introduction { padding: 60px 5% 80px; font-size: 1.6rem; }
+      .introduction { padding: 40px 5% 60px; font-size: 2.0rem; line-height: 1.35; }
     }
   </style>
 </head>
@@ -204,7 +204,7 @@
       }
     });
 
-    // ロゴタップで再読み込み（トップに戻る）
+    // ロゴタップで再読み込み
     const logo = document.getElementById('logo-top');
     if (logo) {
       logo.addEventListener('click', () => {
