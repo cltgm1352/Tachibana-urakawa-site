@@ -29,7 +29,7 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
       -webkit-overflow-scrolling: touch;
-      touch-action: manipulation; /* スマホ全体のズーム防止強化 */
+      touch-action: pan-y pinch-zoom none;
     }
 
     html::-webkit-scrollbar,
@@ -45,7 +45,6 @@
       height: 80px;
       background: transparent;
       z-index: 100;
-      pointer-events: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -122,41 +121,37 @@
 
     .introduction {
       background: #262626;
-      padding: 80px 6% 100px; /* 余白を大幅削減 */
+      padding: 100px 6% 120px;          /* 余白を少し残しつつ調整 */
       text-align: center;
-      line-height: 1.6; /* 行間を詰めてコンパクトに */
-      font-size: 1.8rem; /* 文字サイズを大きく（PC基準） */
+      line-height: 1.5;                 /* 行間を詰めて読みやすく */
+      font-size: 2.2rem;                /* 文字サイズを大幅アップ（PC基準） */
       font-weight: 900;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     .introduction p {
-      max-width: 920px;
-      margin: 0 auto 1.2em; /* 段落間隔も詰める */
-      background: transparent;
+      max-width: 1000px;
+      margin: 0 auto 1.5em;             /* 段落間隔も詰める */
     }
 
-    /* スマホ対応（文字をさらに大きく・詰めて） */
+    /* スマホ対応（文字を大きく保ちつつ詰める） */
     @media (max-width: 768px) {
       header { height: 60px; }
       .logo-center { max-height: 36px; }
       .site-title { font-size: 3.2rem; top: 70px; left: 20px; }
       .tagline { font-size: 1.6rem; bottom: 40px; left: 20px; }
       .introduction {
-        padding: 60px 6% 80px;
-        font-size: 1.4rem; /* スマホでも大きく見える */
-        line-height: 1.5;
+        padding: 70px 6% 90px;
+        font-size: 1.8rem;            /* スマホでもかなり大きく */
+        line-height: 1.45;
       }
-      .introduction p {
-        max-width: 90%;
-        margin: 0 auto 1em;
-      }
+      .introduction p { max-width: 90%; margin: 0 auto 1em; }
     }
 
     @media (max-width: 480px) {
       .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
-      .introduction { padding: 50px 5% 70px; font-size: 1.3rem; }
+      .introduction { padding: 60px 5% 80px; font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -209,14 +204,14 @@
       }
     });
 
-    // ロゴをタップ/クリックしたらページ再読み込み（トップに戻る確実方法）
+    // ロゴタップで再読み込み（トップに戻る）
     const logo = document.getElementById('logo-top');
     if (logo) {
-      logo.addEventListener('click', function() {
+      logo.addEventListener('click', () => {
         window.location.reload();
       });
 
-      logo.addEventListener('touchend', function(e) {
+      logo.addEventListener('touchend', (e) => {
         e.preventDefault();
         window.location.reload();
       });
