@@ -210,7 +210,7 @@
       line-height: 1.5;
     }
 
-    /* 新しいGiving Backセクション（Sustainabilityと同じスタイル） */
+    /* Giving Backセクション（中央揃えに変更） */
     .giving-back {
       background-image: url('img/background_Tachibana.png');
       background-size: cover;
@@ -221,21 +221,19 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
+      justify-content: center;          /* 縦中央寄せ */
+      align-items: center;              /* 横中央揃え */
+      text-align: center;               /* テキストも中央揃え */
     }
 
     .giving-back .section-title {
       font-size: 1.4rem;
-      text-align: left;
       margin-bottom: 1.5rem;
-      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
     }
 
     .giving-back p {
       max-width: 800px;
-      text-align: left;
-      margin: 0.5em 0;
+      margin: 0.5em auto;
       font-size: 2.2rem;
       font-weight: 900;
       font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
@@ -258,7 +256,6 @@
         padding: 80px 6% 100px;
         min-height: 60vh;
       }
-      .sustainability p,
       .giving-back p {
         font-size: 1.8rem;
       }
@@ -271,7 +268,6 @@
       .section-title { font-size: 1.1rem; }
       .sustainability,
       .giving-back { padding: 60px 5% 80px; min-height: 50vh; }
-      .sustainability p,
       .giving-back p { font-size: 1.6rem; }
     }
   </style>
@@ -327,7 +323,7 @@
       <p>and moments of rest or time away are often out of reach.</p>
     </section>
 
-    <!-- 新しいGiving Backセクション（Sustainabilityと同じスタイル） -->
+    <!-- Giving Backセクション（中央揃えに変更） -->
     <section class="giving-back">
       <h2 class="section-title">Giving Back</h2>
       <p>Yet rest is not a luxury.</p>
