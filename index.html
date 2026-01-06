@@ -240,7 +240,7 @@
       line-height: 1.5;
     }
 
-    /* Accessセクション（中央揃えタイトル + Google Map） */
+    /* Accessセクション */
     .access {
       background: #262626;
       padding: 100px 6% 120px;
@@ -253,7 +253,6 @@
       margin-bottom: 2rem;
       letter-spacing: 0.2em;
       opacity: 0.8;
-      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
     }
 
     .access .map-container {
@@ -273,6 +272,39 @@
       border: none;
     }
 
+    /* 新しいOperationセクション */
+    .operation {
+      background: #262626;
+      padding: 100px 6% 120px;
+      text-align: center;
+    }
+
+    .operation img {
+      width: 100%;
+      max-width: 1280px;
+      height: auto;
+      display: block;
+      margin: 0 auto 3rem;
+      object-fit: contain;
+    }
+
+    .operation .btn {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: #007bff; /* 青い背景 */
+      color: #ffffff;
+      font-size: 1.6rem;
+      font-weight: 900;
+      text-decoration: none;
+      border-radius: 50px; /* 丸いボタン */
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .operation .btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
     /* スマホ対応 */
     @media (max-width: 768px) {
       header { height: 60px; }
@@ -284,7 +316,8 @@
         font-size: 1.8rem;
       }
       .section-title { font-size: 1.2rem; }
-      .access .map-container { height: 400px; }
+      .operation img { max-width: 100%; }
+      .operation .btn { font-size: 1.4rem; padding: 0.8rem 2.5rem; }
     }
 
     @media (max-width: 480px) {
@@ -292,7 +325,7 @@
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
       .section-common { padding: 60px 5% 80px; font-size: 1.6rem; }
       .section-title { font-size: 1.1rem; }
-      .access .map-container { height: 350px; }
+      .operation { padding: 60px 5% 80px; }
     }
   </style>
 </head>
@@ -360,20 +393,14 @@
       <p>with single-parent families in Japan.</p>
     </section>
 
-    <!-- Accessセクション（中央揃えタイトル + 更新されたGoogle Map） -->
-    <section class="access section-common">
-      <h2 class="section-title">Access</h2>
-      <div class="map-container">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4395.201655203754!2d137.76282627604763!3d35.06062862686402!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601b15672391fe09%3A0x12ec99034eb31553!2z44CSNDMxLTM5MDYg6Z2Z5bKh55yM5rWc5p2-5biC5aSp56uc5Yy65L2Q5LmF6ZaT55S65rWm5bed77yT77yU77yZ77yZ!5e1!3m2!1sja!2sjp!4v1767708895561!5m2!1sja!2sjp" 
-          width="100%" 
-          height="500" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+    <!-- 新しいOperationセクション -->
+    <section class="operation section-common">
+      <img 
+        src="img/operation_img/img_1.png" 
+        alt="Operation Image" 
+        style="max-width: 100%; height: auto; display: block; margin: 0 auto 3rem;"
+      >
+      <a href="#" class="btn">Message from the Owner</a>
     </section>
   </div>
 
