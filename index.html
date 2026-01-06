@@ -136,6 +136,15 @@
       margin: 0 auto 1.5em;
     }
 
+    /* Experiencesセクションのタイトル（小さく中央揃え） */
+    .experiences h2 {
+      font-size: 1.8rem;              /* 本文より小さく */
+      font-weight: 900;
+      margin-bottom: 2rem;
+      letter-spacing: 0.2em;
+      opacity: 0.8;                   /* 少し薄くして本文を目立たせる */
+    }
+
     /* Portfolioセクション（YouTubeサムネサイズ） */
     .portfolio {
       background: #262626;
@@ -165,6 +174,9 @@
         font-size: 1.8rem;
         line-height: 1.45;
       }
+      .experiences h2 {
+        font-size: 1.5rem;
+      }
       .portfolio { padding: 60px 4%; }
       .portfolio img { max-width: 100%; }
     }
@@ -174,6 +186,7 @@
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
       .introduction,
       .experiences { padding: 60px 5% 80px; font-size: 1.6rem; }
+      .experiences h2 { font-size: 1.4rem; }
       .portfolio { padding: 50px 3%; }
     }
   </style>
@@ -213,8 +226,9 @@
       <img src="img/portfolio/img_1.png" alt="Portfolio Image 1">
     </section>
 
-    <!-- 新しいExperiencesセクション（Introductionと同じスタイル・フォント・大きさ） -->
+    <!-- Experiencesセクション（Introductionと同じスタイル） -->
     <section class="experiences">
+      <h2>Experiences</h2>
       <p>Surrounded by mountains, forests, and clear rivers,</p>
       <p>TACHIBANA rests in a place where nature still sets the rhythm of life.</p>
       <p>Here, mornings begin with birdsong,</p>
