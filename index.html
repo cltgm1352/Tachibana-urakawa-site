@@ -134,21 +134,19 @@
       margin: 0 auto 1.5em;
     }
 
-    /* セクションタイトルを小さく調整 */
     .section-title {
-      font-size: 1.4rem;              /* 以前より小さく（1.8rem → 1.4rem） */
+      font-size: 1.4rem;
       font-weight: 900;
       margin-bottom: 2rem;
       letter-spacing: 0.2em;
       opacity: 0.8;
     }
 
-    /* Portfolioセクション（YouTubeサムネサイズ + 左からスライド） */
+    /* Portfolioセクション（アニメーション削除版） */
     .portfolio {
       background: #262626;
       padding: 80px 5%;
       text-align: center;
-      overflow: hidden;
     }
 
     .portfolio img {
@@ -159,14 +157,6 @@
       object-fit: contain;
       display: block;
       margin: 0 auto;
-      transform: translateX(-100%);
-      opacity: 0;
-      transition: transform 1.2s ease-out, opacity 1.2s ease-out;
-    }
-
-    .portfolio img.visible {
-      transform: translateX(0);
-      opacity: 1;
     }
 
     /* スマホ対応 */
@@ -180,7 +170,7 @@
         font-size: 1.8rem;
         line-height: 1.45;
       }
-      .section-title { font-size: 1.2rem; } /* スマホでも小さめ */
+      .section-title { font-size: 1.2rem; }
       .portfolio { padding: 60px 4%; }
       .portfolio img { max-width: 100%; }
     }
@@ -224,9 +214,9 @@
       <p>With your family or someone special, please enjoy a unique stay found nowhere else.</p>
     </section>
 
-    <!-- Portfolioセクション（YouTubeサムネサイズ + 左からスライド） -->
+    <!-- Portfolioセクション（アニメーション削除） -->
     <section class="portfolio">
-      <img src="img/portfolio/img_1.png" alt="Portfolio Image 1" id="portfolio-img">
+      <img src="img/portfolio/img_1.png" alt="Portfolio Image 1">
     </section>
 
     <!-- Experiencesセクション -->
@@ -264,15 +254,6 @@
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
-      }
-
-      // Portfolio画像が画面に入ったら左からスライドイン
-      const portfolioImg = document.getElementById('portfolio-img');
-      if (portfolioImg) {
-        const rect = portfolioImg.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
-          portfolioImg.classList.add('visible');
-        }
       }
     });
 
