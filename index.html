@@ -179,7 +179,7 @@
       opacity: 0.8;
     }
 
-    /* Sustainabilityセクション（背景画像 + 左下揃え + ゴシック体強制） */
+    /* Sustainabilityセクション（背景画像 + 左下揃え） */
     .sustainability {
       background-image: url('img/background_Sustainability.png');
       background-size: cover;
@@ -198,10 +198,41 @@
       font-size: 1.4rem;
       text-align: left;
       margin-bottom: 1.5rem;
-      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
     }
 
     .sustainability p {
+      max-width: 800px;
+      text-align: left;
+      margin: 0.5em 0;
+      font-size: 2.2rem;
+      font-weight: 900;
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
+      line-height: 1.5;
+    }
+
+    /* 新しいGiving Backセクション（Sustainabilityと同じスタイル） */
+    .giving-back {
+      background-image: url('img/background_Tachibana.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 80vh;
+      padding: 120px 8% 120px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    .giving-back .section-title {
+      font-size: 1.4rem;
+      text-align: left;
+      margin-bottom: 1.5rem;
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
+    }
+
+    .giving-back p {
       max-width: 800px;
       text-align: left;
       margin: 0.5em 0;
@@ -222,11 +253,13 @@
         font-size: 1.8rem;
       }
       .section-title { font-size: 1.2rem; }
-      .sustainability {
+      .sustainability,
+      .giving-back {
         padding: 80px 6% 100px;
         min-height: 60vh;
       }
-      .sustainability p {
+      .sustainability p,
+      .giving-back p {
         font-size: 1.8rem;
       }
     }
@@ -236,8 +269,10 @@
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
       .section-common { padding: 60px 5% 80px; font-size: 1.6rem; }
       .section-title { font-size: 1.1rem; }
-      .sustainability { padding: 60px 5% 80px; min-height: 50vh; }
-      .sustainability p { font-size: 1.6rem; }
+      .sustainability,
+      .giving-back { padding: 60px 5% 80px; min-height: 50vh; }
+      .sustainability p,
+      .giving-back p { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -286,11 +321,24 @@
       <p>inviting you to slow down and simply be.</p>
     </section>
 
-    <!-- Sustainabilityセクション（背景画像 + 左下揃え + ゴシック体強制） -->
     <section class="sustainability">
       <h2 class="section-title">Sustainability</h2>
       <p>In Japan, single-parent families face significantly greater economic and emotional challenges than the national average. Public data shows that nearly half of children in single-parent households live in relative poverty,</p>
       <p>and moments of rest or time away are often out of reach.</p>
+    </section>
+
+    <!-- 新しいGiving Backセクション（Sustainabilityと同じスタイル） -->
+    <section class="giving-back">
+      <h2 class="section-title">Giving Back</h2>
+      <p>Yet rest is not a luxury.</p>
+      <p>It is essential to a healthy and dignified life.</p>
+      <p>Staying at TACHIBANA is more than a personal retreat.</p>
+      <p>It is a quiet act of giving—</p>
+      <p>supporting the land, the people, and the future of this place.</p>
+      <p>No ceremonies. No recognition.</p>
+      <p>Just a stay that gives back.</p>
+      <p>In time, we hope to share this experience</p>
+      <p>with single-parent families in Japan.</p>
     </section>
   </div>
 
