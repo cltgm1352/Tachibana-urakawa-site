@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -298,11 +298,20 @@
       text-decoration: none;
       border-radius: 50px;
       transition: background 0.3s ease, transform 0.3s ease;
+      margin-bottom: 2rem;
     }
 
     .operation .btn:hover {
       background: #0056b3;
       transform: scale(1.05);
+    }
+
+    .operation .creator-message {
+      font-size: 1.8rem;
+      font-weight: 900;
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     /* スマホ対応 */
@@ -316,9 +325,9 @@
         font-size: 1.8rem;
       }
       .section-title { font-size: 1.2rem; }
-      .access .map-container { height: 400px; }
       .operation img { max-width: 100%; }
       .operation .btn { font-size: 1.4rem; padding: 0.8rem 2.5rem; }
+      .operation .creator-message { font-size: 1.6rem; }
     }
 
     @media (max-width: 480px) {
@@ -326,7 +335,6 @@
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
       .section-common { padding: 60px 5% 80px; font-size: 1.6rem; }
       .section-title { font-size: 1.1rem; }
-      .access .map-container { height: 350px; }
       .operation { padding: 60px 5% 80px; }
     }
   </style>
@@ -395,7 +403,6 @@
       <p>with single-parent families in Japan.</p>
     </section>
 
-    <!-- Accessセクション -->
     <section class="access section-common">
       <h2 class="section-title">Access</h2>
       <div class="map-container">
@@ -419,6 +426,13 @@
         style="max-width: 100%; height: auto; display: block; margin: 0 auto 3rem;"
       >
       <a href="#" class="btn">Message from the Owner</a>
+
+      <!-- ボタンの下に追加したテキスト -->
+      <p class="creator-message" style="margin-top: 3rem; font-size: 2.2rem; line-height: 1.5;">
+        Meet the CREATORS<br>
+        We didn’t create a place to stay.<br>
+        We shaped a moment to remember.
+      </p>
     </section>
   </div>
 
