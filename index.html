@@ -215,16 +215,16 @@
       }
     });
 
-    // ロゴタップでトップへ（スマホ対応強化）
+    // ロゴをタップ/クリックでトップへ（スマホ・PC両対応）
     const logo = document.getElementById('logo-top');
     if (logo) {
-      // スマホ用
+      // スマホ用（touchendで確実に動作）
       logo.addEventListener('touchend', function(e) {
-        e.preventDefault();
+        e.preventDefault();           // ズームやデフォルト動作を止める
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }, { passive: false });
 
-      // PC用
+      // PC用（clickで動作）
       logo.addEventListener('click', function(e) {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
