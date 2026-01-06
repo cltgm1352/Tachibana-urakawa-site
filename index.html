@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>TachibanaOfficialWebsite</title>
   
-  <!-- ファビコン -->
   <link rel="icon" type="image/png" href="img/site_logo.png">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -31,10 +26,7 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    html::-webkit-scrollbar,
-    body::-webkit-scrollbar {
-      display: none;
-    }
+    html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
     header {
       position: fixed;
@@ -44,7 +36,6 @@
       height: 80px;
       background: transparent;
       z-index: 100;
-      pointer-events: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -56,17 +47,23 @@
       backdrop-filter: blur(8px);
     }
 
-    .logo-center {
-      max-height: 48px;
-      width: auto;
-      object-fit: contain;
+    .logo-button {
+      background: none;
+      border: none;
+      padding: 0;
       cursor: pointer;
-      transition: transform 0.3s ease;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
 
-    .logo-center:hover {
+    .logo-center {
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-button:hover .logo-center {
       transform: scale(1.1);
     }
 
@@ -116,7 +113,6 @@
       position: relative;
       z-index: 10;
       padding-top: 100vh;
-      background: transparent;
       min-height: 100vh;
     }
 
@@ -138,24 +134,9 @@
     @media (max-width: 768px) {
       header { height: 60px; }
       .logo-center { max-height: 36px; }
-      .site-title {
-        font-size: 3.2rem;
-        top: 70px;
-        left: 20px;
-      }
-      .tagline {
-        font-size: 1.6rem;
-        bottom: 40px;
-        left: 20px;
-      }
-      .introduction {
-        padding: 80px 8% 100px;
-        font-size: 1.15rem;
-        line-height: 1.8;
-      }
-      .introduction p {
-        max-width: 90%;
-      }
+      .site-title { font-size: 3.2rem; top: 70px; left: 20px; }
+      .tagline { font-size: 1.6rem; bottom: 40px; left: 20px; }
+      .introduction { padding: 80px 8% 100px; font-size: 1.15rem; line-height: 1.8; }
     }
 
     @media (max-width: 480px) {
@@ -168,12 +149,9 @@
 <body>
 
   <header>
-    <img 
-      src="img/Logo_Site.png" 
-      alt="TachibanaOfficialWebsite" 
-      class="logo-center"
-      id="logo-top"
-    >
+    <button class="logo-button" type="button">
+      <img src="img/Logo_Site.png" alt="TachibanaOfficialWebsite" class="logo-center">
+    </button>
   </header>
 
   <div class="site-title">TACHIBANA</div>
@@ -214,15 +192,15 @@
       }
     });
 
-    // ロゴクリック/タップでトップへ（シンプルに）
-    const logo = document.getElementById('logo-top');
-    if (logo) {
-      logo.addEventListener('click', () => {
+    // ロゴボタンでトップへ（シンプルに）
+    const logoButton = document.querySelector('.logo-button');
+    if (logoButton) {
+      logoButton.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // スマホ用（touchendで確実に）
-      logo.addEventListener('touchend', () => {
+      // スマホ用（touchendで確実に動作）
+      logoButton.addEventListener('touchend', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
