@@ -40,6 +40,8 @@
       align-items: center;
       justify-content: center;
       transition: background 0.4s ease;
+      cursor: pointer; /* ヘッダー全体がクリック可能 */
+      touch-action: manipulation;
     }
 
     header.scrolled {
@@ -47,23 +49,14 @@
       backdrop-filter: blur(8px);
     }
 
-    .logo-button {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
     .logo-center {
       max-height: 48px;
       width: auto;
       object-fit: contain;
-      transition: transform 0.3s ease;
+      pointer-events: none; /* 画像自体はクリック無効にしてヘッダー全体で処理 */
     }
 
-    .logo-button:hover .logo-center {
+    .logo-center:hover {
       transform: scale(1.1);
     }
 
@@ -148,10 +141,8 @@
 </head>
 <body>
 
-  <header>
-    <button class="logo-button" type="button">
-      <img src="img/Logo_Site.png" alt="TachibanaOfficialWebsite" class="logo-center">
-    </button>
+  <header id="top">
+    <img src="img/Logo_Site.png" alt="TachibanaOfficialWebsite" class="logo-center">
   </header>
 
   <div class="site-title">TACHIBANA</div>
@@ -192,15 +183,14 @@
       }
     });
 
-    // ロゴボタンでトップへ（シンプルに）
-    const logoButton = document.querySelector('.logo-button');
-    if (logoButton) {
-      logoButton.addEventListener('click', () => {
+    // ヘッダー全体をクリック/タップでトップへ（これが最強）
+    const header = document.querySelector('header');
+    if (header) {
+      header.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // スマホ用（touchendで確実に動作）
-      logoButton.addEventListener('touchend', () => {
+      header.addEventListener('touchend', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
