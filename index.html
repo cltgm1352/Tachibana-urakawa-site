@@ -121,37 +121,60 @@
 
     .introduction {
       background: #262626;
-      padding: 60px 5% 80px;            /* 余白をさらに削減 */
+      padding: 100px 6% 120px;
       text-align: center;
-      line-height: 1.45;                /* 行間を極限まで詰めて */
-      font-size: 3.2rem;                /* 文字サイズを激増！（PC基準） */
+      line-height: 1.5;
+      font-size: 2.2rem;
       font-weight: 900;
       font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     .introduction p {
       max-width: 1000px;
-      margin: 0 auto 0.8em;             /* 段落間隔も極小 */
+      margin: 0 auto 1.5em;
     }
 
-    /* スマホ対応（文字をさらに大きく・詰めて） */
+    /* Portfolioセクション（YouTubeサムネサイズ） */
+    .portfolio {
+      background: #262626;
+      padding: 80px 5%;
+      text-align: center;
+    }
+
+    .portfolio img {
+      width: 100%;
+      max-width: 1280px;          /* YouTubeサムネイル横幅 */
+      height: auto;
+      aspect-ratio: 16 / 9;       /* YouTubeサムネイル縦横比 */
+      object-fit: contain;        /* スマホで左右切れ防止 */
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* スマホ対応 */
     @media (max-width: 768px) {
       header { height: 60px; }
       .logo-center { max-height: 36px; }
       .site-title { font-size: 3.2rem; top: 70px; left: 20px; }
       .tagline { font-size: 1.6rem; bottom: 40px; left: 20px; }
       .introduction {
-        padding: 50px 5% 70px;
-        font-size: 2.4rem;            /* スマホでも超大きく */
-        line-height: 1.4;
+        padding: 70px 6% 90px;
+        font-size: 1.8rem;
+        line-height: 1.45;
       }
-      .introduction p { max-width: 90%; margin: 0 auto 0.7em; }
+      .portfolio {
+        padding: 60px 4%;
+      }
+      .portfolio img {
+        max-width: 100%;
+      }
     }
 
     @media (max-width: 480px) {
       .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
-      .introduction { padding: 40px 5% 60px; font-size: 2.0rem; line-height: 1.35; }
+      .introduction { padding: 60px 5% 80px; font-size: 1.6rem; }
+      .portfolio { padding: 50px 3%; }
     }
   </style>
 </head>
@@ -183,6 +206,11 @@
       <p>Surrounded by the changing seasons, warmed by the hearth, and nourished by local seasonal delicacies,</p>
       <p>you will experience moments where time seems to stand still.</p>
       <p>With your family or someone special, please enjoy a unique stay found nowhere else.</p>
+    </section>
+
+    <!-- Portfolioセクション（YouTubeサムネサイズ） -->
+    <section class="portfolio">
+      <img src="img/portfolio/img_1.png" alt="Portfolio Image 1">
     </section>
   </div>
 
