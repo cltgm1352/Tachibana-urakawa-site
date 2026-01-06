@@ -142,7 +142,7 @@
       opacity: 0.8;
     }
 
-    /* Portfolioセクション（アニメーション削除版） */
+    /* Portfolioセクション */
     .portfolio {
       background: #262626;
       padding: 80px 5%;
@@ -159,6 +159,53 @@
       margin: 0 auto;
     }
 
+    /* Experiencesセクション */
+    .experiences {
+      background: #262626;
+      padding: 100px 6% 120px;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 2.2rem;
+      font-weight: 900;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .experiences h2 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      letter-spacing: 0.2em;
+      opacity: 0.8;
+    }
+
+    /* Sustainabilityセクション（背景画像 + 左下揃え） */
+    .sustainability {
+      background-image: url('img/background_Sustainability.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 80vh;
+      padding: 120px 8% 120px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* 縦方向下寄せ */
+      align-items: flex-start;   /* 横方向左寄せ */
+    }
+
+    .sustainability .section-title {
+      font-size: 1.4rem;
+      text-align: left;          /* 左揃え */
+      margin-bottom: 1.5rem;
+    }
+
+    .sustainability p {
+      max-width: 800px;
+      text-align: left;          /* 左揃え */
+      margin: 0.5em 0;
+      font-size: 2.2rem;
+    }
+
     /* スマホ対応 */
     @media (max-width: 768px) {
       header { height: 60px; }
@@ -168,19 +215,20 @@
       .section-common {
         padding: 70px 6% 90px;
         font-size: 1.8rem;
-        line-height: 1.45;
       }
       .section-title { font-size: 1.2rem; }
-      .portfolio { padding: 60px 4%; }
-      .portfolio img { max-width: 100%; }
+      .sustainability {
+        padding: 80px 6% 100px;
+        min-height: 60vh;
+      }
+      .sustainability p {
+        font-size: 1.8rem;
+      }
     }
 
     @media (max-width: 480px) {
-      .site-title { font-size: 2.6rem; top: 60px; left: 15px; }
-      .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
-      .section-common { padding: 60px 5% 80px; font-size: 1.6rem; }
-      .section-title { font-size: 1.1rem; }
-      .portfolio { padding: 50px 3%; }
+      .sustainability { padding: 60px 5% 80px; min-height: 50vh; }
+      .sustainability p { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -214,12 +262,10 @@
       <p>With your family or someone special, please enjoy a unique stay found nowhere else.</p>
     </section>
 
-    <!-- Portfolioセクション（アニメーション削除） -->
     <section class="portfolio">
       <img src="img/portfolio/img_1.png" alt="Portfolio Image 1">
     </section>
 
-    <!-- Experiencesセクション -->
     <section class="experiences section-common">
       <h2 class="section-title">Experiences</h2>
       <p>Surrounded by mountains, forests, and clear rivers,</p>
@@ -231,8 +277,8 @@
       <p>inviting you to slow down and simply be.</p>
     </section>
 
-    <!-- Sustainabilityセクション -->
-    <section class="sustainability section-common">
+    <!-- Sustainabilityセクション（背景画像 + 左下揃え） -->
+    <section class="sustainability">
       <h2 class="section-title">Sustainability</h2>
       <p>In Japan, single-parent families face significantly greater economic and emotional challenges than the national average. Public data shows that nearly half of children in single-parent households live in relative poverty,</p>
       <p>and moments of rest or time away are often out of reach.</p>
