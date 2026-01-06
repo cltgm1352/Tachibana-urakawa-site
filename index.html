@@ -179,7 +179,7 @@
       opacity: 0.8;
     }
 
-    /* Sustainabilityセクション（背景画像 + 左下揃え） */
+    /* Sustainabilityセクション */
     .sustainability {
       background-image: url('img/background_Sustainability.png');
       background-size: cover;
@@ -210,7 +210,7 @@
       line-height: 1.5;
     }
 
-    /* Giving Backセクション（中央揃えに変更） */
+    /* Giving Backセクション */
     .giving-back {
       background-image: url('img/background_Tachibana.png');
       background-size: cover;
@@ -221,9 +221,9 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: center;          /* 縦中央寄せ */
-      align-items: center;              /* 横中央揃え */
-      text-align: center;               /* テキストも中央揃え */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
     .giving-back .section-title {
@@ -240,6 +240,39 @@
       line-height: 1.5;
     }
 
+    /* Accessセクション（中央揃えタイトル + Google Map） */
+    .access {
+      background: #262626;
+      padding: 100px 6% 120px;
+      text-align: center;
+    }
+
+    .access .section-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      letter-spacing: 0.2em;
+      opacity: 0.8;
+      font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif !important;
+    }
+
+    .access .map-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 1px solid #444;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .access iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     /* スマホ対応 */
     @media (max-width: 768px) {
       header { height: 60px; }
@@ -251,14 +284,7 @@
         font-size: 1.8rem;
       }
       .section-title { font-size: 1.2rem; }
-      .sustainability,
-      .giving-back {
-        padding: 80px 6% 100px;
-        min-height: 60vh;
-      }
-      .giving-back p {
-        font-size: 1.8rem;
-      }
+      .access .map-container { height: 400px; }
     }
 
     @media (max-width: 480px) {
@@ -266,9 +292,7 @@
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
       .section-common { padding: 60px 5% 80px; font-size: 1.6rem; }
       .section-title { font-size: 1.1rem; }
-      .sustainability,
-      .giving-back { padding: 60px 5% 80px; min-height: 50vh; }
-      .giving-back p { font-size: 1.6rem; }
+      .access .map-container { height: 350px; }
     }
   </style>
 </head>
@@ -323,7 +347,6 @@
       <p>and moments of rest or time away are often out of reach.</p>
     </section>
 
-    <!-- Giving Backセクション（中央揃えに変更） -->
     <section class="giving-back">
       <h2 class="section-title">Giving Back</h2>
       <p>Yet rest is not a luxury.</p>
@@ -335,6 +358,22 @@
       <p>Just a stay that gives back.</p>
       <p>In time, we hope to share this experience</p>
       <p>with single-parent families in Japan.</p>
+    </section>
+
+    <!-- Accessセクション（中央揃えタイトル + 更新されたGoogle Map） -->
+    <section class="access section-common">
+      <h2 class="section-title">Access</h2>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4395.201655203754!2d137.76282627604763!3d35.06062862686402!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601b15672391fe09%3A0x12ec99034eb31553!2z44CSNDMxLTM5MDYg6Z2Z5bKh55yM5rWc5p2-5biC5aSp56uc5Yy65L2Q5LmF6ZaT55S65rWm5bed77yT77yU77yZ77yZ!5e1!3m2!1sja!2sjp!4v1767708895561!5m2!1sja!2sjp" 
+          width="100%" 
+          height="500" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </section>
   </div>
 
