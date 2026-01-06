@@ -36,7 +36,6 @@
       display: none;
     }
 
-    /* ヘッダー */
     header {
       position: fixed;
       top: 0;
@@ -63,14 +62,14 @@
       object-fit: contain;
       cursor: pointer;
       transition: transform 0.3s ease;
-      touch-action: manipulation; /* スマホタップ時のズーム防止 */
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .logo-center:hover {
       transform: scale(1.1);
     }
 
-    /* TACHIBANA（左上） */
     .site-title {
       position: fixed;
       top: 90px;
@@ -85,7 +84,6 @@
       text-transform: uppercase;
     }
 
-    /* A Stay That Gives Back.（左下） */
     .tagline {
       position: fixed;
       bottom: 60px;
@@ -100,7 +98,6 @@
       text-transform: uppercase;
     }
 
-    /* 動画 */
     .video-bg {
       position: fixed;
       inset: 0;
@@ -115,7 +112,6 @@
       object-position: center;
     }
 
-    /* コンテンツ */
     .content {
       position: relative;
       z-index: 10;
@@ -172,23 +168,18 @@
 </head>
 <body>
 
-  <!-- ヘッダー（ロゴクリックでトップへ） -->
   <header>
     <img 
       src="img/Logo_Site.png" 
       alt="TachibanaOfficialWebsite" 
       class="logo-center"
-      onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+      id="logo-top"
     >
   </header>
 
-  <!-- TACHIBANA（左上） -->
   <div class="site-title">TACHIBANA</div>
-
-  <!-- A Stay That Gives Back.（左下） -->
   <div class="tagline">A Stay That Gives Back.</div>
 
-  <!-- 動画 -->
   <div class="video-bg">
     <video autoplay muted loop playsinline preload="auto">
       <source src="video/video_home.mp4" type="video/mp4">
@@ -196,7 +187,6 @@
     </video>
   </div>
 
-  <!-- コンテンツ -->
   <div class="content">
     <section class="introduction">
       <p>Nestled in a quiet mountain village, TACHIBANA is a lovingly restored traditional house.</p>
@@ -207,14 +197,15 @@
     </section>
   </div>
 
-  <!-- 操作防止スクリプト -->
   <script>
+    // 操作防止
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('dragstart', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && ['s','S','u','U'].includes(e.key)) e.preventDefault();
     });
 
+    // ヘッダースクロールエフェクト
     window.addEventListener('scroll', () => {
       const header = document.querySelector('header');
       if (window.scrollY > 50) {
@@ -223,6 +214,22 @@
         header.classList.remove('scrolled');
       }
     });
+
+    // ロゴタップでトップへ（スマホ対応強化）
+    const logo = document.getElementById('logo-top');
+    if (logo) {
+      // スマホ用
+      logo.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, { passive: false });
+
+      // PC用
+      logo.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   </script>
 
 </body>
