@@ -314,6 +314,27 @@
       margin: 0 auto;
     }
 
+    /* Footerセクション（左揃え + 背景#262626） */
+    footer {
+      background: #262626; /* 指定通り背景を#262626に */
+      padding: 60px 6% 40px;
+      text-align: left; /* 左揃え */
+      position: relative;
+    }
+
+    .footer-logo {
+      max-height: 80px;
+      width: auto;
+      display: block;
+      margin: 0 0 1.5rem 0; /* 左寄せ */
+    }
+
+    .footer-copyright {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 1rem;
+    }
+
     /* スマホ対応 */
     @media (max-width: 768px) {
       header { height: 60px; }
@@ -325,9 +346,8 @@
         font-size: 1.8rem;
       }
       .section-title { font-size: 1.2rem; }
-      .operation img { max-width: 100%; }
-      .operation .btn { font-size: 1.4rem; padding: 0.8rem 2.5rem; }
-      .operation .creator-message { font-size: 1.6rem; }
+      .footer-logo { max-height: 60px; }
+      .footer-copyright { font-size: 0.8rem; }
     }
 
     @media (max-width: 480px) {
@@ -335,7 +355,7 @@
       .tagline { font-size: 1.3rem; bottom: 35px; left: 15px; }
       .section-common { padding: 60px 5% 80px; font-size: 1.6rem; }
       .section-title { font-size: 1.1rem; }
-      .operation { padding: 60px 5% 80px; }
+      .footer { padding: 40px 5% 30px; }
     }
   </style>
 </head>
@@ -418,7 +438,6 @@
       </div>
     </section>
 
-    <!-- Operationセクション -->
     <section class="operation section-common">
       <img 
         src="img/operation_img/img_1.png" 
@@ -427,7 +446,6 @@
       >
       <a href="#" class="btn">Message from the Owner</a>
 
-      <!-- ボタンの下に追加したテキスト -->
       <p class="creator-message" style="margin-top: 3rem; font-size: 2.2rem; line-height: 1.5;">
         Meet the CREATORS<br>
         We didn’t create a place to stay.<br>
@@ -435,6 +453,16 @@
       </p>
     </section>
   </div>
+
+  <!-- Footerセクション（左揃え + 背景#262626） -->
+  <footer>
+    <img 
+      src="img/logo_2.png" 
+      alt="Tachibana Logo" 
+      class="footer-logo"
+    >
+    <p class="footer-copyright">Copyright © 2026 TACHIBANA.</p>
+  </footer>
 
   <script>
     // 操作防止
